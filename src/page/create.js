@@ -18,7 +18,7 @@ const Create = ()=>{
 
         function excluir(){
             async function fecth() {
-                const resp = await axios.delete(`http://localhost:5000/api/payment/${id}`)
+                const resp = await axios.delete(`https://api-desafiovoxusbackend.herokuapp.com/api/payment/${id}`)
                 document.location.reload(true);
              }  
              fecth()
@@ -52,7 +52,7 @@ const Create = ()=>{
     useEffect(()=>{
 
      async function fecth() {
-        const resp = await axios.get('http://localhost:5000/api/payment')
+        const resp = await axios.get('https://api-desafiovoxusbackend.herokuapp.com/api/payment')
         setData(resp.data.data)
      }  
      fecth()
@@ -69,9 +69,10 @@ const Create = ()=>{
         }
           
 
-        axios.post('http://localhost:5000/api/payment', body )
+        axios.post('https://api-desafiovoxusbackend.herokuapp.com/api/payment', body )
         .then(res => {
           console.log(res.data);
+          document.location.reload(true);
         })
         .catch(error => {
             setErro(error.response.data)
@@ -91,9 +92,10 @@ const Create = ()=>{
                 "comment": comment
             }
               
-            axios.put(`http://localhost:5000/api/payment/${identify}`, body )
+            axios.put(`https://api-desafiovoxusbackend.herokuapp.com/api/payment/${identify}`, body )
             .then(res => {
               console.log(res.data);
+              document.location.reload(true);
             })
             .catch(error => {
                 setErro(error.response.data)
@@ -112,9 +114,10 @@ const Create = ()=>{
         const data = new FormData()
         data.append('file', file)
 
-        axios.post('http://localhost:5000/api/upload', data )
+        axios.post('https://api-desafiovoxusbackend.herokuapp.com/api/upload', data )
         .then(res => {
           console.log(res.data);
+          document.location.reload(true);
         })
         .catch(error => {
             setErro(error.response.data)
@@ -150,14 +153,14 @@ return(
                 {erro ? <Error> {erro.error} </Error> :<></>}
                 <Input type="text"   value={title}   onChange={e=> setTitle(e.target.value)}  placeholder="informe o title do payment"/>
                 <Input type="number" value={value}   onChange={e=> setValue(e.target.value)}  placeholder="informe o valor do payment"/>
-                <Input type="text"   value={date}    onChange={e=> setDate(e.target.value)}  placeholder="informe o valor do payment"/>
+                <Input type="text"   value={date}    onChange={e=> setDate(e.target.value)}  placeholder="informe a data do payment"/>
                 <Input type="text"   value={comment} onChange={e=> setCommet(e.target.value)}  placeholder="descrição (opcional)"/>
                 <Button onClick={gravar}>Adicionar payments</Button> 
                 <h2>or</h2>
 
 
                 {file ? 
-                <Button onClick={click}> 
+                <Button onClick={click} style={{backgroud: '#16a085'}}> 
                     Enviar arquivo
                 </Button>: 
                 
