@@ -165,8 +165,9 @@ return(
                 </Button>: 
                 
                 <Button> 
-                    Fazer upload XLSX
                     <input 
+                    placeholder="Fazer upload XLSX"
+                    style={{background: '#326FFF'}}
                         type="file" 
                         onChange={handleUploadFile}
                     />
