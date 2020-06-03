@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react'
-import {ContainerList ,BtnEdit,CardContent ,Error, BtnExcluir, Input , ContainerCreate ,Button , Text} from '../style'
+import {ContainerList ,BtnEdit,CardContent ,Error, BtnExcluir, Input ,Linput ,ContainerCreate ,Button , Text} from '../style'
 import axios from 'axios'
 
 const Create = ()=>{
@@ -136,9 +136,9 @@ return(
                     <Text>Upgrade now</Text>
                     </>
                     {erro ? <Error> {erro.error} </Error> :<></>}
-                    <Input type="text"   value={title}   onChange={e=> setTitle(e.target.value)}  placeholder="informe o title do payment"/>
+                    <Input type="text"   value={title}   onChange={e=> setTitle(e.target.value)}  placeholder="informe o titulo do payment"/>
                     <Input type="number" value={value}   onChange={e=> setValue(e.target.value)}  placeholder="informe o valor do payment"/>
-                    <Input type="text"   value={date}    onChange={e=> setDate(e.target.value)}  placeholder="informe o valor do payment"/>
+                    <Input type="text"   value={date}    onChange={e=> setDate(e.target.value)}  placeholder="informe a data do payment"/>
                     <Input type="text"   value={comment} onChange={e=> setCommet(e.target.value)}  placeholder="descrição (opcional)"/>
                     <Input type="text" required  value={identify} onChange={e=> setId(e.target.value)}  placeholder="iformar o id"/>
                     <Button onClick={upgrade} style={{background: '#ff7979'}}>Editar payments</Button> 
@@ -151,7 +151,7 @@ return(
                 <Text>New Payment</Text>
                 </>
                 {erro ? <Error> {erro.error} </Error> :<></>}
-                <Input type="text"   value={title}   onChange={e=> setTitle(e.target.value)}  placeholder="informe o title do payment"/>
+                <Input type="text"   value={title}   onChange={e=> setTitle(e.target.value)}  placeholder="informe o titulo do payment"/>
                 <Input type="number" value={value}   onChange={e=> setValue(e.target.value)}  placeholder="informe o valor do payment"/>
                 <Input type="text"   value={date}    onChange={e=> setDate(e.target.value)}  placeholder="informe a data do payment"/>
                 <Input type="text"   value={comment} onChange={e=> setCommet(e.target.value)}  placeholder="descrição (opcional)"/>
@@ -164,14 +164,12 @@ return(
                     Enviar arquivo
                 </Button>: 
                 
-                <Button> 
+                
                     <input 
-                    placeholder="Fazer upload XLSX"
-                    style={{background: '#326FFF'}}
                         type="file" 
                         onChange={handleUploadFile}
                     />
-                </Button>
+             
                 
                 }
 
@@ -181,12 +179,12 @@ return(
                 <ContainerList>
 
                     <header style={{margin:'10px', display: 'flex', flexDirection: 'row', height: '50px', width: '98%',color: '#fff' ,backgroundColor: '#326FFF', borderRadius: '20px', alignItems: 'center'}}>
-                        <h3 style={{margin: 35}}>title</h3>
-                        <h3 style={{margin: 35}}>valor</h3>
-                        <h3 style={{margin: 35}}>taxa</h3>
-                        <h3 style={{margin: 35}}>data</h3>
-                        <h3 style={{margin: 35}}>id</h3>
-                        <h3 style={{margin: 35}}>desc</h3>
+                        <h3 style={{margin: 35, textAlign: 'center'}}>Titulo</h3>
+                        <h3 style={{margin: 35, marginLeft:  5,textAlign: 'center'}}>Valor</h3>
+                        <h3 style={{margin: 35, textAlign: 'center'}}>Taxa</h3>
+                        <h3 style={{margin: 35, textAlign: 'center'}}>Data</h3>
+                        <h3 style={{margin: 35, textAlign: 'center'}}>Id</h3>
+                        <h3 style={{margin: 35}}>Descrição</h3>
                     </header>
 
                     {data.map(list => (<List key={list._id} data={list}/>))}
