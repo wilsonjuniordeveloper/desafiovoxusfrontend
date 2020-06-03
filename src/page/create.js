@@ -138,7 +138,7 @@ return(
                     {erro ? <Error> {erro.error} </Error> :<></>}
                     <Input type="text"   value={title}   onChange={e=> setTitle(e.target.value)}  placeholder="informe o titulo do payment"/>
                     <Input type="number" value={value}   onChange={e=> setValue(e.target.value)}  placeholder="informe o valor do payment"/>
-                    <Input type="text"   value={date}    onChange={e=> setDate(e.target.value)}  placeholder="informe a data do payment"/>
+                    <Input type="text"   value={date}    onChange={e=> setDate(e.target.value)}  placeholder="data do payment(YYYY-MM-DD)"/>
                     <Input type="text"   value={comment} onChange={e=> setCommet(e.target.value)}  placeholder="descrição (opcional)"/>
                     <Input type="text" required  value={identify} onChange={e=> setId(e.target.value)}  placeholder="iformar o id"/>
                     <Button onClick={upgrade} style={{background: '#ff7979'}}>Editar payments</Button> 
