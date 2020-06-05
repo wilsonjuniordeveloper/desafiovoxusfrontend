@@ -138,7 +138,11 @@ return(
                     {erro ? <Error> {erro.error} </Error> :<></>}
                     <Input type="text"   value={title}   onChange={e=> setTitle(e.target.value)}  placeholder="informe o titulo do payment"/>
                     <Input type="number" value={value}   onChange={e=> setValue(e.target.value)}  placeholder="informe o valor do payment"/>
-                    <Input type="text"   value={date}    onChange={e=> setDate(e.target.value)}  placeholder="informe a data do payment"/>
+                    <Input type="text"   value={date}    onChange={e=> setDate(e.target.value)}  
+                    placeholder="YYYY-MM-DD" required 
+                    pattern="(?:19|20)\[0-9\]{2}-(?:(?:0\[1-9\]|1\[0-2\])-(?:0\[1-9\]|1\[0-9\]|2\[0-9\])|(?:(?!02)(?:0\[1-9\]|1\[0-2\])-(?:30))|(?:(?:0\[13578\]|1\[02\])-31))" 
+                    title="Enter a date in this format YYYY-MM-DD"/>
+                    />
                     <Input type="text"   value={comment} onChange={e=> setCommet(e.target.value)}  placeholder="descrição (opcional)"/>
                     <Input type="text" required  value={identify} onChange={e=> setId(e.target.value)}  placeholder="iformar o id"/>
                     <Button onClick={upgrade} style={{background: '#ff7979'}}>Editar payments</Button> 
@@ -153,7 +157,11 @@ return(
                 {erro ? <Error> {erro.error} </Error> :<></>}
                 <Input type="text"   value={title}   onChange={e=> setTitle(e.target.value)}  placeholder="informe o titulo do payment"/>
                 <Input type="number" value={value}   onChange={e=> setValue(e.target.value)}  placeholder="informe o valor do payment"/>
-                <Input type="text"   value={date}    onChange={e=> setDate(e.target.value)}  placeholder="informe a data do payment"/>
+                <Input type="text"   value={date}    onChange={e=> setDate(e.target.value)}  
+                placeholder="YYYY-MM-DD" required 
+                pattern="(?:19|20)\[0-9\]{2}-(?:(?:0\[1-9\]|1\[0-2\])-(?:0\[1-9\]|1\[0-9\]|2\[0-9\])|(?:(?!02)(?:0\[1-9\]|1\[0-2\])-(?:30))|(?:(?:0\[13578\]|1\[02\])-31))" 
+                title="Enter a date in this format YYYY-MM-DD"/>  
+                />
                 <Input type="text"   value={comment} onChange={e=> setCommet(e.target.value)}  placeholder="descrição (opcional)"/>
                 <Button onClick={gravar}>Adicionar payments</Button> 
                 <h2>or</h2>
